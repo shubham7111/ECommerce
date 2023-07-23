@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.parent-container{
+     display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.image img {
+    width:  300px;
+    height: 300px;
+}
+
+.title h1 {
+    font-size:  small;
+}
+
+.card{
+    background-color: rgb(205, 83, 83);
+    width:  400px;
+    height: 420px;
+}
+
+.card-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap : 2px;
+    flex-wrap: wrap;
+
+}
