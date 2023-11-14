@@ -9,7 +9,7 @@ const AuthProvider =  ({children}) => {
     const [token, setToken] = useState(localStorageResponse?.token || null)
 
     const [isLoggedin, setIsLoggedin] = useState(false)
-    const [userInfo, setUserInfo] = useState("")
+    const [userInfo, setUserInfo] = useState(null)
 const navigate = useNavigate()
 const location = useLocation()
     const loginHandler = async ({email, password}) => {
@@ -19,7 +19,7 @@ const location = useLocation()
             console.log(passobj)
             const sendreq =  await fetch("/api/auth/login" ,{method : "POST", headers : {'Accept' : 'application/json', 'Content-type' : 'application/json'}, body : JSON.stringify(passobj)} )
 console.log(sendreq.status)
-            if (sendreq.status === 200){
+            if (sendreq.status === 200 || sendreq.status === 201){
                 console.log('print')
 
                 const {foundUser, encodedToken} =  await sendreq.json()
@@ -27,8 +27,11 @@ console.log(sendreq.status)
                 //const {user, token} = localStorageResponse
             setUserInfo(foundUser)
             setToken(encodedToken)
-            toast("Loggedin Successfully")
+            toast.success("Loggedin Successfully")
             toggelSigninHandler()
+            console.log(encodedToken, 'gghgh')
+            console.log(location)
+            token && navigate( "/products")
             }
             else{
                 toast("Your password or email address is incorrect")
@@ -43,14 +46,14 @@ console.log(sendreq.status)
 //console.log(firstname)
 if (password === confirmpassword){
     try {
-        const passobj =  {email, password} 
+        const passobj =  {firstname , lastname, email , password } 
         //console.log(passobj)
         const sendreq =  await fetch("/api/auth/signup", {method : "POST", headers : {'Accept' : 'application/json', 'Content-type' : 'application/json'}, body : JSON.stringify(passobj)} )
         console.log(sendreq, sendreq.status)
         
        // const reposnetest = await sendreq.json();
 // console.log(reposnetest)
-    if (sendreq.status === 201){
+    if (sendreq.status === 201 || sendreq.status === 200 ){
         const {createdUser, encodedToken} = await sendreq.json();
         //console.log(createdUser, encodedToken, 'dsdsdd')
         localStorage.setItem("loginDetails", JSON.stringify({user : createdUser, token : encodedToken}))
@@ -91,7 +94,7 @@ else{
     const toggelSigninHandler = () => {
 setIsLoggedin((isLoggedin) => !isLoggedin)
     }
-    const valuetobepassed = {signUpHandler, loginHandler, token, logoutHandler, isLoggedin  }
+    const valuetobepassed = {signUpHandler, loginHandler, token, logoutHandler, isLoggedin, userInfo  }
 
     return (
         <AuthProviderKey.Provider value = {valuetobepassed}> {children}</AuthProviderKey.Provider>

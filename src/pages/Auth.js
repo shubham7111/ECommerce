@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { NavLink } from "react-router-dom"
 import { AuthContext } from "../Context/AuthContext"
 
 export default function Auth(){
@@ -27,7 +28,9 @@ export default function Auth(){
         </div>
 <button onClick={loginClickHandler} type = "submit"> Submit</button>
         </form>
-        <button onClick={loginAsGuestHandler}>Create a New Account ? Signup</button>
+        <p>
+        <NavLink to = "/signup" className="link"> Create a New Account ? Signup </NavLink></p>
+        <button onClick={loginAsGuestHandler}>Login as guest</button>
         </div>
     )
 }

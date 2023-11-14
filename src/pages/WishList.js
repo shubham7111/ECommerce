@@ -3,36 +3,38 @@ import { WishKey, wishlist } from "../Context/WishlistContext"
 import {AiFillHeart} from "react-icons/ai"
 import "./WishList.css"
 export default function WishList() {
-    const {wishlist, removeWishlist, removeProductToWishList} =  useContext(WishKey)
+    const {wishlist, removeWishlist, removeProductToWishList, state} =  useContext(WishKey)
+    console.log(state, 'wish')
     return(
+        <div className="header-wish" >
         <div className="parent-container-wish">
 {
-    wishlist?.length>0?wishlist?.map((product) => <div  class="main">    
-    <div class="card">
+    state?.wish?.length>0?state?.wish?.map((product) => <div key = {product._id} className="card-wish">    
+    <div className="card-details">
 <div   className="menu"> 
 
      </div>
-<div class="title">
+<div className="title">
  <h1>
  {product.title}</h1>
 </div>
- <div class="image">
+ <div className="image">
    <img src={product.image} />
 </div>
 
-<div class="des">
+<div className="des">
 <label>Price:</label>{product.price}
-<p><button onClick={() => {removeProductToWishList(product)}}><AiFillHeart/></button>
+<p><button className="button" onClick={() => {removeProductToWishList(product)}}>Remove from Wishlist</button>
 </p>
-<hr/>
 </div>
         </div>
         </div>)
         :
-       <div> <h3>No data in wishlist as of now</h3>
+       <div className= "no-card"> <h3>No data in wishlist as of now</h3>
         {/* <button onClick = {() => navigate("/products") } >Let's Explore</button> */}
         </div>
 }
+        </div>
         </div>
     )
 }

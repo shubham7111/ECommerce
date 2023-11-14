@@ -1,10 +1,14 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
+import { WishListReducer } from "../Reducer/WishListReducer";
+import { initialState } from "../Reducer/WishListReducer";
 
 export const WishKey = createContext()
 
 const WishlistContext = ({children}) => {
     const [wishlist, setWishlist] = useState([])
+    const [state, wishdispatch] = useReducer(WishListReducer, initialState)
+
 const removeWishlist =(id) => {
     const filtereddata = wishlist.filter((item) => item.id !== id)
     setWishlist(filtereddata)
@@ -32,7 +36,8 @@ const wishListCall = async() =>{
     // console.log("received token from server fr wishlist",response)
     //dispatch({type:"GET-CART",payload:response.cart})
     // console.log(response)
-    setWishlist(response.wishlist)
+    wishdispatch({type : "SET-WISHDATA" , payload : response.wishlist})
+    //setWishlist(response.wishlist)
     //console.log(wishlist)}
     }
     
@@ -59,7 +64,9 @@ const wishListCall = async() =>{
             // const resp = await fetch("/api/user/wishlist")
             if (sendreq.status === 200 || sendreq.status === 201 ) {const finalrespp = await sendreq.json()
                 // console.log(finalrespp)
-                setWishlist(finalrespp.wishlist)
+                wishdispatch({type : "SET-WISHDATA" , payload : finalrespp.wishlist})
+
+                //setWishlist(finalrespp.wishlist)
                 // console.log(wishlist)
             }
                 
@@ -72,7 +79,7 @@ const wishListCall = async() =>{
         try{
           //   console.log("recived item for wshl is",product._id,token)
                     const passobj = {product}
-                    console.log(passobj)
+                    //console.log(passobj)
                     const sendreq =await fetch(`/api/user/wishlist/${product._id}`,{
                         method:"DELETE",
                         headers:{'Accept':'application/json',
@@ -81,12 +88,13 @@ const wishListCall = async() =>{
               
                     })
                
-                    console.log("received data  after removing data from wishlost",sendreq)
+                    //console.log("received data  after removing data from wishlost",sendreq)
                     if (sendreq.status === 200 || sendreq.status === 201 ){
                         const response = await sendreq.json();
                         //   console.log("received data  after removing data from wishlost",response)
-        
-                         setWishlist(response.wishlist)
+                        wishdispatch({type : "SET-WISHDATA" , payload : response.wishlist})
+
+                         //setWishlist(response.wishlist)
                       //   dispatch({type: "REMOVE-FROM-WISHLIST",payload:{product,wishlist:response.wishlist}})
                        
                     }
@@ -97,7 +105,11 @@ const wishListCall = async() =>{
                 }          
   
               }
-    const  valuetobepassed = {addToWishlist, wishlist, removeWishlist, removeProductToWishList}
+        const handleWishListCheck = (product) => {
+            return state?.wish?.some((item) => item._id === product._id)
+
+        }
+    const  valuetobepassed = {addToWishlist, wishlist, removeWishlist, removeProductToWishList, state, handleWishListCheck}
     return(
         <WishKey.Provider value = {valuetobepassed}>{children}</WishKey.Provider>
     )

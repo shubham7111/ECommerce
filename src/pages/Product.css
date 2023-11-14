@@ -7,6 +7,8 @@
   column-gap: 20px;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background-color: white;
   
 }
 
@@ -17,15 +19,23 @@
 
 .title h1 {
     font-size:  small;
+    justify-content: center;
+    width: 400px;
+    height: 50px;
 }
 
 .card{
     background-color: rgb(205, 83, 83);
     width:  400px;
     height: 420px;
+    box-shadow: 4px 3px 8px 1px #969696;
+    border-radius: 23px;
+    cursor: pointer;
+    /* box-sizing: border-box; */
 }
 
 .card-details{
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,4 +43,25 @@
     gap : 2px;
     flex-wrap: wrap;
 
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+justify-content: flex-start;
+}
+
+.left-container{
+    width: 25%;
+    background-color: #2a320d;
+    box-shadow: 4px 3px 8px 1px #969696;
+height: 600px;
+justify-content: flex-end;
+align-items: center;
+width: 290px;
+margin-left: 30px;
+}
+
+.right-container{
+    width: 70%;
 }

@@ -10,6 +10,10 @@ import Auth from "./pages/Auth";
 import Header from "./Component/Header";
 import Logout from "./pages/Logout";
 import Cart from "./pages/Cart";
+import UserProfile from "./pages/UserProfile";
+import 'react-toastify/dist/ReactToastify.css';
+import Payment from "./pages/Payment";
+import Home from "./pages/HomePage";
 function App() {
   return (
     <div className="App">
@@ -34,6 +38,9 @@ function App() {
         <Route path = "/mockman" element={ < Mockman />} />
         <Route path = "/logout" element={ < Logout />} />
         <Route path = "/cart" element={ < Cart />} />
+        <Route path = "/profile" element={ < UserProfile />} />
+        <Route path = "/checkout" element={ < Payment />} />
+        <Route path = "/home" element={ < Home />} />
 
         </Routes>
       </header>

@@ -21,9 +21,9 @@ const ProductReducer =  (state, action) => {
                     search : "",
                     sort : "",
                     checkbox : "",
-                    categoryName : "",
+                    categoryName : "all",
                     genre : [], 
-                    all : false}
+                    all : true}
             default :
             return state
     }

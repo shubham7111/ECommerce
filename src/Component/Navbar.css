@@ -41,7 +41,7 @@ nav {
     display: flex;
     justify-content:  space-between;
     color:  white;
-
+/* mix-blend-mode: multiply; */
 }
 
  nav ul{
@@ -63,8 +63,15 @@ nav ul li {
 }
 
 .link{
-    color:  black;
+    all : unset;
+    padding: 6px 16px;
+    background: blue;
+    height: 32px;
+    color: white;
+    font-weight: 500;
+    /* color: brgb(63, 63, 137); */
     text-decoration: none;
-    background-color: rgb(234, 182, 164);
+    border-radius: 5rem;
+    /* background-color: rgb(234, 182, 164); */
 }
 

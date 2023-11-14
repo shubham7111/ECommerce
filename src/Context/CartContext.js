@@ -1,10 +1,12 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
+import { initialState , CartReducer} from "../Reducer/CartReducer";
 
 export const CartKey = createContext()
 
 const CartContext = ({children}) => {
     const [cart, setCart] = useState([])
+    const [state, cartdispatch] = useReducer(CartReducer, initialState)
 const removeCart =(id) => {
     const filtereddata = cart.filter((item) => item.id !== id)
     setCart(filtereddata)
@@ -26,19 +28,20 @@ const cartCall = async() =>{
 }
 
     })
-    console.log(sendreq, 'sendreqgetdata')
     const response = await sendreq.json();
     console.log(" token receivedfrom server fr cart",response)
-    //dispatch({type:"GET-CART",payload:response.cart})
-    setCart(response.cart)
+    cartdispatch({type:"SET-CARTDATA",payload:response.cart})
+    // setCart(response.cart)
     //console.log(wishlist)}
 }
     catch(e){
-        console.log(e)
+        // console.log(e)
     }
    }
    useEffect(() =>{cartCall()}  , [])
 ///////////////
+
+
     const addToCart = async(product) => {
         try {
             const passob = {product}
@@ -55,9 +58,8 @@ const cartCall = async() =>{
             // const resp = await fetch("/api/user/wishlist")
             if (sendreq.status === 200 || sendreq.status === 201 ) {
                 const finalrespp = await sendreq.json()
-                console.log(finalrespp, 'finalresp')
-                setCart(finalrespp.cart)
-                console.log(cart, 'cart')
+                cartdispatch({type:"SET-CARTDATA",payload:finalrespp.cart})
+                // setCart(finalrespp.cart)
             }
                 
             
@@ -72,7 +74,7 @@ const cartCall = async() =>{
                     console.log(passobj)
                     const sendreq =await fetch(`/api/user/cart/${product._id}`,{
                         method:"DELETE",
-                        headers:{'Accept':'application/json',
+                        headers:{'Accept':'application/js`1on',
                     'Content-Type':'application/json',
                     authorization : token}
               
@@ -82,7 +84,7 @@ const cartCall = async() =>{
                     if (sendreq.status === 200 || sendreq.status === 201 ){
                         const response = await sendreq.json();
                         //   console.log("received data  after removing data from wishlost",response)
-        
+                        cartdispatch({type:"SET-CARTDATA",payload:response.cart})
                          setCart(response.cart)
                       //   dispatch({type: "REMOVE-FROM-WISHLIST",payload:{product,wishlist:response.wishlist}})
                        
@@ -94,7 +96,52 @@ const cartCall = async() =>{
                 }          
   //d
               }
-    const  valuetobepassed = {addToCart, cart, removeCart, removeProductToCart}
+    const AddCartQuant = async (product, type) => {
+        try {
+            const requestedBody = {action : {type}}
+            const sendreq =await fetch(`/api/user/cart/${product._id}`,{
+                method:"POST",
+                headers:{'Accept':'application/json',
+            'Content-Type':'application/json',
+            authorization : token}, body: JSON.stringify(requestedBody) })
+
+            if (sendreq.status ===200 || sendreq.status === 201){
+                const response = await sendreq.json()
+                console.log(type, 'checktype')
+                type === "increment" ?
+                cartdispatch({type : "INCREASE-QUANTITY", payload : response?.cart}) : cartdispatch({type : "DECREASE-QUANTITY", payload : response?.cart})
+                console.log(response.cart.length, 'responsefor increase')
+            }
+
+        } catch (error) {
+            
+        }
+    } 
+
+    // const RemoveCartQuant = async (product, type) => {
+    //     try {
+    //         const requestedBody = {action : {type}}
+    //         const sendreq =await fetch(`/api/user/cart/${product._id}`,{
+    //             method:"POST",
+    //             headers:{'Accept':'application/json',
+    //         'Content-Type':'application/json',
+    //         authorization : token}, body: JSON.stringify(requestedBody) })
+
+    //         if (sendreq.status ===200 || sendreq.status === 201){
+    //             const response = await sendreq.json()
+    //             cartdispatch({type : "DECREASE-QUANTITY", payload : response?.cart})
+
+    //         }
+
+    //     } catch (error) {
+            
+    //     }
+    // } 
+    const handleCartCheck = (product) => {
+        return state?.cart?.some((item) => item._id === product._id)
+
+    }
+    const  valuetobepassed = {addToCart, cart, removeCart, removeProductToCart,AddCartQuant, state, cartdispatch, handleCartCheck}
     return(
         <CartKey.Provider value = {valuetobepassed}>{children}</CartKey.Provider>
     )

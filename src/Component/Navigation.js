@@ -1,17 +1,24 @@
-import { NavLink } from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import { FaBeer  } from 'react-icons/fa';
 import {BsFillCartFill}  from 'react-icons/bs';
 import './Navbar.css';
 import { AuthContext } from "../Context/AuthContext";
+import { CartKey } from "../Context/CartContext"
+import { useContext } from "react";
+import { WishKey } from "../Context/WishlistContext";
 
 export default function Navigation(){
 
     const {logoutHandler,token, isLoggedin } = AuthContext()
+    const {cart, state} =  useContext(CartKey)
+    const {state : {wish}} = useContext(WishKey)
+
     return (
         <div>
         <nav >
         <div className="Logo">
-<img src ="https://pps.whatsapp.net/v/t61.24694-24/328307140_272432688676251_6547495851151835475_n.jpg?stp=dst-jpg_s96x96&ccb=11-4&oh=01_AdR-9nd3F3d6ZJv4ZwGuvqi2wjqZSZMRimeB3iBV1SY_2Q&oe=64C93629" style={{width: 40, height: 40, borderRadius: 400/ 2}} />
+        <NavLink to = "/home" ><img src ="https://lh3.googleusercontent.com/a/AAcHTtcUFk9bay7inQlBufdbe8egoYkJatoMsZLIL9JX1JRvjQ=s192-c-mo" style={{width: 40, height: 40, borderRadius: 400/ 2}} /></NavLink>
+
         </div>
         <ul >
         <li >
@@ -21,10 +28,10 @@ export default function Navigation(){
         <NavLink to = "/products" className="link"> Product</NavLink>
         </li>
         <li>
-        <NavLink to = "/wishlist" > <FaBeer style={{color: "white"}}/> </NavLink>
+        <NavLink to = "/wishlist" > <FaBeer style={{color: "black"}}/>{wish?.length} </NavLink>
         </li>
         <li>
-        <NavLink to = "/cart"> <BsFillCartFill style={{color: "white"}}/> </NavLink>
+        <NavLink to = "/cart">  <BsFillCartFill style={{color: "black"}} /> {state?.cart?.length} </NavLink>
         </li>
         <li>
         <NavLink to = "/signup" className="link"> SignUp</NavLink>
@@ -32,8 +39,11 @@ export default function Navigation(){
         <li>
         <NavLink to = "/auth" className="link"> Auth</NavLink>
         </li>
-        {/* {console.log(isLoggedin, token, '23jan')} */}
+        {console.log(isLoggedin, token, '23jan')}
         <li>{isLoggedin && token &&  <div onClick={logoutHandler} > <NavLink to= "/logout" className="link">Logout</NavLink></div>}</li>
+        <li>
+        <NavLink to = "/profile" className="link"> Profile</NavLink>
+        </li>
         </ul>
         </nav>
         </div>

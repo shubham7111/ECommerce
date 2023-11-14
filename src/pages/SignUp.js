@@ -26,11 +26,11 @@ else{
     return (
         <form onSubmit={prevendata}>
         <div>
-            <input required placeholder="First Name" type = "text" name = "firstname" onChange={setInputHandler} /> 
-            <input required placeholder="Last Name" type =  "text" name = "lastname" onChange={setInputHandler} />
-            <input required placeholder="E-mail" type =  "text" name = "email" onChange={setInputHandler} />
-            <input required placeholder="Password" type =  "password" name = "password" onChange={setInputHandler} />
-            <input required placeholder="Confirm Password" type =  "password" name = "confirmpassword" onChange={setInputHandler} />
+            <p>First Name : <input required placeholder="First Name" type = "text" name = "firstname" onChange={setInputHandler} /> </p>
+            <p> Last Name : <input required placeholder="Last Name" type =  "text" name = "lastname" onChange={setInputHandler} /></p>
+            <p> E-Mail : <input required placeholder="E-mail" type =  "text" name = "email" onChange={setInputHandler} /></p>
+            <p> Password : <input required placeholder="Password" type =  "password" name = "password" onChange={setInputHandler} /></p>
+            <p> Confirm Password : <input required placeholder="Confirm Password" type =  "password" name = "confirmpassword" onChange={setInputHandler} /></p>
         </div>
         <button type="submit" id="submitBtn" className="submitBtn" onClick = {submitHandler}>submit</button>
         </form>

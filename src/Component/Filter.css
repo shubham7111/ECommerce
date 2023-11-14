@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.filter-parent-container{
+    display: flex;
+    flex-direction: column;
+ 
+    width: 70%;
+    justify-content: center;
+    
+}
+
+.filter-category{
+    
+    height: 100%;
+    
+}

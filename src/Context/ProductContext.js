@@ -43,7 +43,7 @@ const ProductContext = ({children}) => {
     filteredSearchData
 
     const filteredCategoryData = state?.categoryName.length > 0 ? state.categoryName !== "all" ?
-    filteredSearchData.filter((item) => item.categoryName.toLowerCase() === state.categoryName.toLowerCase() ) : filteredSearchData : filteredSearchData
+    filteredSearchData.filter((item) => item.categoryName.toLowerCase() === state.categoryName.toLowerCase() ) : filteredSearchData : filteredSortData
 
     const filteredDataGenre = state?.genre.length > 0 ? 
     filteredCategoryData.filter((item) => state?.genre.includes(item.genre) ):filteredCategoryData
