@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.filter-parent-container{
+    display: flex;
+    flex-direction: column;
+ 
+    width: 70%;
+    justify-content: center;
+    display: block;
+    /* background-color: snow; */
+
+    
+}
+
+.filter-parent-container{
+    
+    height: 100%;
+ background-color:sow;
+ width:100%;
+ padding-top:20px
+    
+}
+
+.filter-search{
+    padding:10px;
+    inset:1 0 0 10px
+}
+.tags{
+    font-size: large;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.filter-category{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-bottom: 5px;
+  
+}
+.filter-category .input-div {
+    display: flex;
+    flex-direction: row;
+
+    /* border:1px solid black; */
+      /* justify-content: center; */
+    /* align-items: center; */
+    
+}
+.filter-category .input-div .radio{
+    
+margin-left: 70px;
+   
+margin-right: 20px;
+}
+.clear-btn{
+    margin:10px;
+    padding:10px;
+    color:black;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.clear-btn{
+    margin:10px;
+    padding:10px;
+    color:black;
+    background-color: grey;
+    border-radius: 10px;
+}
+.clear-btn:hover{
+    color:black;
+    background-color: white;
+    cursor: pointer;
+}

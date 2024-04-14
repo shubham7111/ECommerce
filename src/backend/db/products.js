@@ -44,43 +44,48 @@ image:"https://m.media-amazon.com/images/I/61gwL8JOZtL._UY741_.jpg",
     description: "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
     categoryName: "men",
     genre:"men",
+    sale:30,
     image: "https://m.media-amazon.com/images/I/51eeIluLqFL._UX569_.jpg"
   },
   {
     _id: uuid(),
-    title: "Men Solid Round Neck Poly Cotton Black T-Shirt",
+    title: "Men Solid Round Neck  Black T-Shirt",
   price: 297,
     description: "great sports wear jersey   for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors.",
     categoryName: "men",
     genre:"sports",
+    sale:30,
     image:"https://rukminim1.flixcart.com/image/832/832/xif0q/t-shirt/b/7/y/-original-imaghgyaqywafqus.jpeg?q=70"
   },
   {
     _id: uuid(),
-    title: "Pack of 2 Solid Men Black, Blue Regular Shorts, Sports Shorts, Night Shorts, Running Shorts",
+    title: "Pack of 2 Solid Men Running Shorts",
   price: 429,
     description: "great sports wear jersey   for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors.",
     categoryName: "men",
+    sale:30,
     genre:"sports",
     image:"https://rukminim1.flixcart.com/image/832/832/kiqbma80-0/short/w/x/i/xxl-ic-24445-indiclub-original-imafygpfzcyx5gjy.jpeg?q=70" 
   }
 ,
 {
   _id: uuid(),
-  title: "Women Solid Round Neck Polyester Black T-Shirt",
+  title: " Solid Round Neck Polyester Black T-Shirt",
 price: 582,
   description: "great sports wear jersey   for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors.",
   categoryName: "women",
+  sale:30,
   genre:"sports",
   image:
   "https://rukminim1.flixcart.com/image/832/832/l432ikw0/t-shirt/v/8/k/-original-imagf2bcgykdh2zx.jpeg?q=70" 
 },
 {
   _id: uuid(),
-  title: "Women Solid High Neck Pure Cotton Black T-Shirt",
+  title: "  Pure Cotton Black T-Shirt",
 price: 399,
   description: "great sports wear jersey   for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors.",
   categoryName: "women",
+  sale:30,
   genre:"sports",
   image:
   "https://rukminim1.flixcart.com/image/832/832/kw3v0cw0/shopsy-t-shirt/n/6/t/s-ap-shopsy-wm-1-4zip-hn-ls-328-white-ap-pulse-original-imaes55eh4wct5ny.jpeg?q=70" 
@@ -92,6 +97,7 @@ price: 399,
   description: "great sports wear jersey   for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors.",
   categoryName: "kids",
   genre:"sports",
+  sale:30,
   image:
   "https://rukminim1.flixcart.com/image/832/832/kvgzyq80/jacket/k/m/d/5-6-years-1-no-boywc07olivewht-chimprala-original-imag8d7qyzgur9yb.jpeg?q=70" 
 }
@@ -101,6 +107,7 @@ price: 399,
   {
     _id: uuid(),
     genre:"formal",
+    sale:30,
    
     title: "Olive Green Shirt",
 image:"https://m.media-amazon.com/images/I/61BUD4qOnxL._UX679_.jpg",
@@ -113,6 +120,7 @@ image:"https://m.media-amazon.com/images/I/61BUD4qOnxL._UX679_.jpg",
     genre:"casual",
     image:"https://m.media-amazon.com/images/I/71aMn+N22bL._UY879_.jpg",
     price: 1000,
+    sale:30,
     categoryName: "women",
   },
   {
@@ -121,6 +129,7 @@ image:"https://m.media-amazon.com/images/I/61BUD4qOnxL._UX679_.jpg",
     genre:"formal",
     image:"https://m.media-amazon.com/images/I/71AQqI9GMTL._UX679_.jpg",
     price: 3600,
+    sale:30,
     categoryName: "women",
   },
   {
@@ -129,6 +138,7 @@ image:"https://m.media-amazon.com/images/I/61BUD4qOnxL._UX679_.jpg",
     image:"https://m.media-amazon.com/images/I/31RXhZ-Gu1L.jpg",
     price: 1000,
     genre:"casual",
+    sale:30,
     categoryName: "kids",
   },
   {
@@ -137,13 +147,14 @@ image:"https://m.media-amazon.com/images/I/61BUD4qOnxL._UX679_.jpg",
     image:"https://m.media-amazon.com/images/I/41jZA9RfMlL._UX679_.jpg",
     genre:"casual",
     price: 500,
+    sale:30,
     categoryName: "kids",
   },
   {
     _id: uuid(),
     title: "Beige Pant",
     genre:"formal",
-
+    sale:30,
     image:"https://m.media-amazon.com/images/I/41-InzUEMOL._UY550_.jpg", price: 3400,
     categoryName: "men",
   },

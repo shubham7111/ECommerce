@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body{
+    background-color: white;
+    margin:0;
+    padding:0;
+    text-decoration: none;
+   
+}
+.wishlist-parent-container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top:150px; */
+}
+
+.wishlist-cards-container{
+    margin-top:150px;
+}
+
+.no-items-container p{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top:150px;
+  
+}
+
+.no-items-container  button{
+    color:black;
+    padding:10px;
+    margin:10px;
+    border-radius: 10%;
+    font-weight: 600;
+}
+.no-items-container  button:hover{
+    cursor: pointer;
+}
+.wishlist-cards-container{
+    display: flex;
+    flex-direction: column;
+
+
+}
+.wishlist-cards-container .child{
+
+    border-top:1px solid black;
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    flex-wrap: wrap;
+    
+}
+.wishlist-cards-container .child .image{
+    width:150px;
+    height: 150px;
+    margin:20px;
+    border-radius: 10%;
+}
+
+.wishlist-cards-container .child .details {
+    padding-top:20px;
+    display: flex;
+    flex-direction: column;
+}
+.bold{
+    font-weight: 600;
+    color:black;
+    margin-left:10px;
+}
+.wishlist-cards-container .child .details button{
+    padding:10px;
+    margin:10px;
+    border-radius: 10px;
+}
+.child .details button:hover{
+    cursor: pointer;
+}

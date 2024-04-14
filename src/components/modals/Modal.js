@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import "./Modal.css";
-import { CartKey } from "../Context/CartContext";
+import { CartKey } from "../../context/CartContext";
 const Modal = ({setInputHandler, closeModal , address, setModal}) => {
   const {state, cartdispatch} = useContext(CartKey)
     const closeModalHandler = (e) => {

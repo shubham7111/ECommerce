@@ -1,8 +1,8 @@
 import { useContext, useState } from "react"
-import { AuthContext } from "../Context/AuthContext"
-import Address from "./Address"
+import { AuthContext } from "../../context/AuthContext"
+import Address from "../Address"
 import "./UserProfile.css" 
-import { CartKey } from "../Context/CartContext"
+import { CartKey } from "../../context/CartContext"
 export default function UserProfile(){
     const {userInfo } = AuthContext()
     const [selectedTab, setSelectedTab] = useState("profile")

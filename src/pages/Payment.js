@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { CartKey } from "../Context/CartContext"
+import { CartKey } from "../context/CartContext"
  import "./Payment.css"
 export default function Payment() {
     const {state } = useContext(CartKey)
