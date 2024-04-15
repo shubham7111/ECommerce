@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
-import { initialState, CartReducer } from "../Reducer/CartReducer";
+import { initialState, CartReducer } from "../reducer/CartReducer";
 
 export const CartKey = createContext();
 
