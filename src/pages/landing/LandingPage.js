@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { WishKey } from "../../context/WishlistContext";
+import { WishKey } from "../../Context/WishlistContext";
 
 import Filter from "../../components/filter/Filter";
-import { CartState } from "../../context/ProductContext";
+import { CartState } from "../../Context/ProductContext";
 import "./LandingPage.css";
-import { CartKey } from "../../context/CartContext";
-import Card from "../../components/card/Card"
+import { CartKey } from "../../Context/CartContext";
+import Card from "../../components/card/Card";
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 export default function LandingPage() {
@@ -18,20 +18,19 @@ export default function LandingPage() {
     filteredDataGenre,
   } = CartState();
 
-
   return (
     <div>
-      <Navbar/>
-    <div className="main-container">
-      <div class="sidebar">
-        <Filter />
+      <Navbar />
+      <div className="main-container">
+        <div class="sidebar">
+          <Filter />
         </div>
         <div className="card-container">
-        {filteredDataGenre?.map((product) => <Card key = {product._id} item = {product} />)}
-
+          {filteredDataGenre?.map((product) => (
+            <Card key={product._id} item={product} />
+          ))}
         </div>
-     
-   </div>
-   </div>
+      </div>
+    </div>
   );
 }

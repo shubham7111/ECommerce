@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
-import { WishListReducer } from "../reducer/WishListReducer";
-import { initialState } from "../reducer/WishListReducer";
+import { WishListReducer } from "../Reducer/WishListReducer";
+import { initialState } from "../Reducer/WishListReducer";
 
 export const WishKey = createContext();
 

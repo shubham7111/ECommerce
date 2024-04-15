@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CartState } from "../../context/ProductContext";
+import { CartState } from "../../Context/ProductContext";
 import "./Filter.css";
 
 export default function Filter() {
@@ -51,7 +51,6 @@ export default function Filter() {
   };
   return (
     <div className="filter-parent-container">
-
       {/* search section of filter */}
       <div className="filter-search">
         <input
@@ -62,40 +61,35 @@ export default function Filter() {
         />
       </div>
 
+      {/* //category section of filter */}
 
- {/* //category section of filter */}
-
-    
       <span className="tags">Category </span>
       <div className="filter-category">
-
-        {
-            categoriesArray?.map((category)=><div className="input-div">
-                 <input
-            type="radio"
-            className="radio"
-            name={category?.name}
-            value={category?.value}
-            onChange={setCategory}
-            checked={
-              categoryName?.length > 0 && categoryName === category?.value
-                ? true
-                : false
-            }
-          />
-          {category?.text}
-          </div>)
-        }
-     
+        {categoriesArray?.map((category) => (
+          <div className="input-div">
+            <input
+              type="radio"
+              className="radio"
+              name={category?.name}
+              value={category?.value}
+              onChange={setCategory}
+              checked={
+                categoryName?.length > 0 && categoryName === category?.value
+                  ? true
+                  : false
+              }
+            />
+            {category?.text}
+          </div>
+        ))}
       </div>
-
 
       {/* sort section of filter */}
 
-        <span  className="tags">Sort  </span>
-        <div className="filter-category">
+      <span className="tags">Sort </span>
+      <div className="filter-category">
         {sortArray?.map((item) => (
-          <div  className="input-div">
+          <div className="input-div">
             {" "}
             <input
               type="radio"
@@ -108,15 +102,14 @@ export default function Filter() {
             {item.text}
           </div>
         ))}
-      
       </div>
 
       {/* genre section of filter */}
-     
-        <span className="tags" >Genre </span >
-        <div className="filter-category">
+
+      <span className="tags">Genre </span>
+      <div className="filter-category">
         {genreArray?.map((gen) => (
-          <div  className="input-div" key={gen?.id}>
+          <div className="input-div" key={gen?.id}>
             <input
               type="checkbox"
               className="radio"
@@ -132,11 +125,9 @@ export default function Filter() {
 
       {/* clear button section of genre */}
       <div className="filter-clear">
-   
-          <button className="clear-btn" type="button" onClick={handleClear}>
-            Clear Filter{" "}
-          </button>
-      
+        <button className="clear-btn" type="button" onClick={handleClear}>
+          Clear Filter{" "}
+        </button>
       </div>
     </div>
   );

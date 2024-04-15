@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useState } from "react";
 import { json, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import AuthReducer, { initialState } from "../reducer/AuthReducer";
+import AuthReducer, { initialState } from "../Reducer/AuthReducer";
 export const AuthProviderKey = createContext();
 
 const AuthProvider = ({ children }) => {
