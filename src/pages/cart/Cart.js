@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
 import { AiFillHeart } from "react-icons/ai";
-import { CartKey } from "../../Context/CartContext";
+import { CartKey } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/card/Card";
 import { NavLink } from "react-router-dom";
 //import { FaCartShopping } from "react-icons/fa6";
 import NoCart from "./NoCart.png";
 import "./Cart.css";
-import { WishKey } from "../../Context/WishlistContext";
+import { WishKey } from "../../context/WishlistContext";
 export default function Cart() {
   const { state, removeProductToCart, AddCartQuant, cartCall } =
     useContext(CartKey);

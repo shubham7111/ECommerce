@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
-import { AuthProviderKey, AuthContext } from "../../Context/AuthContext";
+import { AuthProviderKey, AuthContext } from "../../context/AuthContext";
 import { NavLink } from "react-router-dom";
 import "./SignUp.css";
 

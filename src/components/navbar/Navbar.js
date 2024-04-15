@@ -6,10 +6,10 @@ import { FaCartShopping } from "react-icons/fa6";
 import { BsFillPersonFill } from "react-icons/bs";
 import { IoIosLogOut } from "react-icons/io";
 import "./Navbar.css";
-import { AuthContext } from "../../Context/AuthContext";
-import { CartKey } from "../../Context/CartContext";
+import { AuthContext } from "../../context/AuthContext";
+import { CartKey } from "../../context/CartContext";
 import { useContext } from "react";
-import { WishKey } from "../../Context/WishlistContext";
+import { WishKey } from "../../context/WishlistContext";
 import { CgProfile } from "react-icons/cg";
 export default function Navbar() {
   const { logoutHandler, token, isLoggedin } = AuthContext();

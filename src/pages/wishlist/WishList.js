@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
-import { WishKey, wishlist } from "../../Context/WishlistContext";
+import { WishKey, wishlist } from "../../context/WishlistContext";
 import { AiFillHeart } from "react-icons/ai";
 import "./WishList.css";
 import Card from "../../components/card/Card";
 import NoItems from "./WishList.png";
 import { useNavigate } from "react-router-dom";
-import { CartKey } from "../../Context/CartContext";
+import { CartKey } from "../../context/CartContext";
 export default function WishList() {
   const navigate = useNavigate();
   const {

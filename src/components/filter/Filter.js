@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CartState } from "../../Context/ProductContext";
+import { CartState } from "../../context/ProductContext";
 import "./Filter.css";
 
 export default function Filter() {

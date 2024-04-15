@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
-import { CartKey } from "../../Context/CartContext";
+import { CartKey } from "../../context/CartContext";
 import { AiFillHeart } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
-import { WishKey } from "../../Context/WishlistContext";
+import { WishKey } from "../../context/WishlistContext";
 import "./Card.css";
 import { useNavigate } from "react-router-dom";
 export default function Card({ item }) {

@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { WishKey } from "../../Context/WishlistContext";
+import { WishKey } from "../../context/WishlistContext";
 
 import Filter from "../../components/filter/Filter";
-import { CartState } from "../../Context/ProductContext";
+import { CartState } from "../../context/ProductContext";
 import "./LandingPage.css";
-import { CartKey } from "../../Context/CartContext";
+import { CartKey } from "../../context/CartContext";
 import Card from "../../components/card/Card";
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";

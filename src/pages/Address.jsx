@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./Address.css";
 import Modal from "../components/modals/Modal";
-import { CartKey } from "../Context/CartContext";
+import { CartKey } from "../context/CartContext";
 export default function Address() {
   const dummy = [
     {
