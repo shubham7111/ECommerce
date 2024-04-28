@@ -12,7 +12,7 @@ import Logout from "./pages/auth/Logout";
 import Cart from "./pages/cart/Cart";
 import UserProfile from "./pages/profile/UserProfile";
 import "react-toastify/dist/ReactToastify.css";
-import Payment from "./pages/Payment";
+import Payment from "./pages/payment/Payment";
 import HomePage from "./pages/home/HomePage";
 import ProductDetail from "./pages/productDetail/ProductDetail";
 function App() {

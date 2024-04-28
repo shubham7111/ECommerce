@@ -25,7 +25,7 @@ const CartContext = ({ children }) => {
         },
       });
       const response = await sendreq.json();
-      console.log(" token receivedfrom server fr cart", response.cart);
+      // console.log(" token receivedfrom server fr cart", response.cart);
       cartdispatch({ type: "SET-CARTDATA", payload: response.cart });
       // setCart(response.cart)
       //console.log(wishlist)}
@@ -91,9 +91,41 @@ const CartContext = ({ children }) => {
     }
     //d
   };
+
+  const removeAllProductFromCart = async (product) => {
+    try {
+      // console.log("product r",product)
+      //   console.log("recived item for wshl is",product._id,token)
+      const passobj = { product };
+      console.log(passobj);
+      const sendreq = await fetch(`/api/user/cart/`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/js`1on",
+          "Content-Type": "application/json",
+          authorization: token,
+        },
+      });
+
+      // console.log("received data  after removing data from wishlost",sendreq)
+      if (sendreq.status === 200 || sendreq.status === 201) {
+        const response = await sendreq.json();
+        console.log(
+          "received data  after removing data from wishlost",
+          response
+        );
+        cartdispatch({ type: "SET-CARTDATA", payload: response.cart });
+
+        //   dispatch({type: "REMOVE-FROM-WISHLIST",payload:{product,wishlist:response.wishlist}})
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    //d
+  };
   const AddCartQuant = async ({ product, type }) => {
     try {
-      console.log(type, token, "checktype");
+      console.log(type, product.qty, "checktype");
       const requestedBody = { action: { type } };
       const sendreq = await fetch(`/api/user/cart/${product._id}`, {
         method: "POST",
@@ -149,7 +181,7 @@ const CartContext = ({ children }) => {
     state,
     removeProductToCart,
     AddCartQuant,
-
+    removeAllProductFromCart,
     cartdispatch,
     isPresentinCart,
   };

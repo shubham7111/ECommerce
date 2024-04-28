@@ -51,7 +51,10 @@ const Modal = ({ setInputHandler, closeModal, address, setModal }) => {
               <input type="text" name="phone" onChange={setInputHandler} />
             </p>
 
-            <button onClick={clickHandler}> Submit</button>
+            <button className="address-submit-btn" onClick={clickHandler}>
+              {" "}
+              Submit
+            </button>
           </form>
         </div>
       </div>

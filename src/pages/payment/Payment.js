@@ -1,50 +1,79 @@
 import { useContext, useState } from "react";
-import { CartKey } from "../context/CartContext";
+import { CartKey } from "../../context/CartContext";
 import "./Payment.css";
+import { toast } from "react-toastify";
+import { PaymentModal } from "../../components/paymentModal/PaymentModal";
 export default function Payment() {
   const { state } = useContext(CartKey);
   const totalProductsCount = state?.cart?.reduce(
     (acc, item) => (acc += item?.qty),
     0
   );
+  const [address, setAddress] = useState(state?.address[0]);
+  const [isAddressSelected, setAddressSelected] = useState(true);
+  const [modal, setModal] = useState(false);
+  const openModal = () => setModal(true);
+  const closeModal = () => setModal(false);
+  //address modal end
+
+  //payment modal begins
+  const [placeOrder, setPlaceOrder] = useState(false);
+  const closePlaceOrderModal = () => setPlaceOrder(false);
+  const openPlaceOrderModal = () => {
+    console.log(address);
+    if (!isAddressSelected) {
+      toast("Please select an address to continue");
+    } else {
+      setPlaceOrder(true);
+    }
+  };
   const total = state?.cart?.reduce(
     (acc, item) =>
       (acc +=
         item?.qty && item.qty > 1 ? item?.qty * item.price : item?.price * 1),
     0
   );
-  const [address, setAddress] = useState({ name: "", area: "", phone: "" });
   const selectHandler = (e) => {
     console.log(e.target.value);
     const data = state?.address?.find((item) => item.name === e.target.value);
     setAddress(data);
+    setAddressSelected(true);
   };
 
   return (
     <div className="parent-container">
       <div className="address">
-        {state?.address?.map((addresss, i) => (
+        {state?.address?.map((add, i) => (
           <div key={i}>
             <h3> Address {i + 1}</h3>
             <input
               type="radio"
               name="address"
-              value={addresss.name}
+              value={add.name}
               onChange={selectHandler}
+              checked={address?.name === add?.name}
             />{" "}
             <p>
-              <strong>{addresss.name}</strong>
+              <strong>{add?.name}</strong>
             </p>
             <p>
-              <strong>Address: </strong> {addresss.area}
+              <strong>Address: </strong> {add?.area}
             </p>
             <p>
-              <strong>Phone: </strong> {addresss.phone}
+              <strong>Phone: </strong> {add?.phone}
             </p>
             {/* {console.log(i)} */}
           </div>
         ))}
       </div>
+      {modal &&
+        {
+          /* <AddressModal closeModal={closeModal} addAddress={addAddress} /> */
+        }}
+      {address && placeOrder && (
+        <PaymentModal closePlaceOrderModal={closePlaceOrderModal} />
+      )}
+      {/* <button onClick={setModal}>Add Address</button> */}
       <div className="payment">
         <p>
           <hr />
@@ -98,7 +127,7 @@ export default function Payment() {
               </tr>
               <tr>
                 <td>Discount </td>
-                <td> -{total / 2}</td>
+                <td> -{total * 0.2}</td>
               </tr>
               <tr>
                 <td>Delivery charges </td>
@@ -110,7 +139,7 @@ export default function Payment() {
               </tr>
               <tr>
                 <td>Total Amount </td>
-                <td> {total}</td>
+                <td> {total - total * 0.2}</td>
               </tr>
             </tbody>
           </table>
@@ -162,6 +191,9 @@ export default function Payment() {
           <br />
           {address.phone}
         </p>
+        <button className="place-prder-btn" onClick={openPlaceOrderModal}>
+          Place Order
+        </button>
         <p></p>
         <p></p>
         <p></p>

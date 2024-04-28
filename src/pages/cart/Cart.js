@@ -14,6 +14,7 @@ export default function Cart() {
   const { isPresentinWishlist, removeProductToWishList, addToWishlist } =
     useContext(WishKey);
   const navigate = useNavigate();
+
   useEffect(() => {
     cartCall();
   }, [state]);
@@ -51,6 +52,7 @@ export default function Cart() {
                     </button>
                     <button
                       onClick={() =>
+                        product.qty >= 2 &&
                         AddCartQuant({ product, type: "decrement" })
                       }
                     >
@@ -77,7 +79,21 @@ export default function Cart() {
               </div>
             ))}
           </div>
-          <div className="payment-container">Payment details</div>
+          <div className="payment-container">
+            <h2> Payment details</h2>
+            <p>
+              <strong>Total charges :</strong> {total}
+            </p>
+            <p>
+              <strong>Discount :</strong> 20%
+            </p>
+            <p>
+              <strong>Total payable</strong> : {total - total * 0.2}
+            </p>
+            <button onClick={() => navigate("/checkout")}>
+              Proceed for Payment
+            </button>
+          </div>
         </div>
       ) : (
         <div className="no-items-container">

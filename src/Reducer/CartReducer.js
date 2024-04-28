@@ -27,12 +27,13 @@ export const CartReducer = (value, action) => {
     case "DECREASE-QUANTITY":
       return { ...value, cart: action.payload };
     case "SET-CARTDATA":
-      // console.log("cart reducer",action.payload)
+      // console.log("cart reducer", action.payload);
       return { ...value, cart: action.payload };
     case "ADD-ADDRESS":
       // console.log(value, 'after address')
 
       return { ...value, address: [...value.address, action.payload] };
+
     default:
       return value;
   }

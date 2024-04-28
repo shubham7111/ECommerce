@@ -146,3 +146,31 @@ export const updateCartItemHandler = function (schema, request) {
     );
   }
 };
+
+export const removeAllItemFromCartHandler = function (schema, request) {
+  const userId = requiresAuth.call(this, request);
+  try {
+    if (!userId) {
+      return new Response(
+        404,
+        {},
+        {
+          errors: ["The email you entered is not Registered. Not Found error"],
+        }
+      );
+    }
+    // let userCart = schema.users.findBy({ _id: userId }).cart;
+    // const productId = request.params.productId;
+    // userCart = userCart.filter((item) => item._id !== productId);
+    this.db.users.update({ _id: userId }, { cart: [] });
+    return new Response(200, {}, { cart: [] });
+  } catch (error) {
+    return new Response(
+      500,
+      {},
+      {
+        error,
+      }
+    );
+  }
+};

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./Address.css";
-import Modal from "../components/modals/Modal";
-import { CartKey } from "../context/CartContext";
+import Modal from "../../components/modals/Modal";
+import { CartKey } from "../../context/CartContext";
 export default function Address() {
   const dummy = [
     {
@@ -47,10 +47,10 @@ export default function Address() {
   //     }
   return (
     <div className="profileAddress-header">
-      <h2>My Address</h2>
+      <h3>Address Details</h3>
       {state?.address?.map((addresss, i) => (
-        <div key={i}>
-          <h3> Address {i}</h3>
+        <div className="address-detail" key={i}>
+          <h3> Address {i + 1}</h3>
           <p>
             <strong>Name: </strong> {addresss.name}
           </p>
@@ -63,7 +63,9 @@ export default function Address() {
           {/* {console.log(i)} */}
         </div>
       ))}
-      <button onClick={openModal}>Add new address</button>
+      <button className="add-new-address-btn" onClick={openModal}>
+        Add new address
+      </button>
 
       <div className="address-modal">
         {modal && (

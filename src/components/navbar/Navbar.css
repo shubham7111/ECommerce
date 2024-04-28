@@ -1,100 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-*{
-    font-family: "Poppins", sans-serif;
-    margin : 0;
-    padding:  0;
-    text-decoration: none;
-    list-style: none;
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    margin : 0;
-    padding:  0;
-    text-decoration: none;
-    list-style: none;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
 }
-.hero{
-    font-weight: 600;
-    color: black;
-    font-size: 40px;
+.hero {
+  font-weight: 600;
+  color: black;
+  font-size: 40px;
 }
-.hero:hover{
-   cursor: pointer;
+.hero:hover {
+  cursor: pointer;
 }
 
 .navbar-container {
-    display: flex;
-    justify-content:  space-between;
-    color:  white;
-    flex-direction: row;
-    background-color: snow;
-    height:100px;
-    z-index: 1000;
-position: fixed;
-width: 100%;
-margin-bottom: 100px;
-margin-top: 0;
-/* mix-blend-mode: multiply; */
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  flex-direction: row;
+  background-color: snow;
+  height: 100px;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  margin-bottom: 100px;
+  margin-top: 0;
+  /* mix-blend-mode: multiply; */
 }
 
-.navbar-container .navbar-right-side-container{
-    display: flex;
-    justify-content:  space-between;
-    color:  white;
-    flex-direction: row;
-    align-items: center;
-    column-gap: 30px;
-    margin-right: 20px;
-    /* background-color: aqua; */
+.navbar-container .navbar-right-side-container {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 30px;
+  margin-right: 20px;
+  /* background-color: aqua; */
 }
-.navbar-container .navbar-right-side-container div:hover{
-    cursor: pointer;
+.navbar-container .navbar-right-side-container div:hover {
+  cursor: pointer;
 }
-
-
 
 .Logo {
-    
-    margin: 2rem;
+  margin: 2rem;
 }
 
-.link{
-    all : unset;
-    padding: 6px 16px;
-    /* background: blue; */
-    height: 32px;
-    color: black;
-    font-weight: 500;
-    /* color: brgb(63, 63, 137); */
-    text-decoration: none;
-    border-radius: 5rem;
-    font-size: 25px;
-    color:grey
-    /* background-color: rgb(234, 182, 164); */
+.link {
+  all: unset;
+  padding: 6px 16px;
+  /* background: blue; */
+  height: 32px;
+  color: black;
+  font-weight: 500;
+  /* color: brgb(63, 63, 137); */
+  text-decoration: none;
+  border-radius: 5rem;
+  font-size: 25px;
+  color: grey;
+  /* background-color: rgb(234, 182, 164); */
 }
-.link:hover{
-    cursor: pointer;
-}
-
-.nav-child-item{
-    position :relative;
+.link:hover {
+  cursor: pointer;
 }
 
+.nav-child-item {
+  position: relative;
+}
 
-.nav-child-item .length{
-    position :absolute;
-    /* right: 0; */
-    top:0;
-    font-size: 10px;
-    background-color: grey;
-    border-radius: 50%;
-    padding: 0.5px;
-    color:black;
-    font-weight: 600;
-    height:10px;
-    width:10px;
-    z-index: 1;
-    margin-left: 25px ;
+.nav-child-item .length {
+  position: absolute;
+  height: 2px;
+
+  width: 2px;
+  top: 0;
+  right: 0;
+  background: grey;
+  color: black;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 0.5rem;
+  margin-left: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

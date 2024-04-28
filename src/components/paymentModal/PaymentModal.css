@@ -1,0 +1,14 @@
+.form-login button {
+  margin-right: 5px;
+  /* width: 15px;
+  height: 25px; */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10%;
+  color: black;
+  font-weight: 700;
+}
+.form-login button:hover {
+  cursor: pointer;
+  background-color: grey;
+}
